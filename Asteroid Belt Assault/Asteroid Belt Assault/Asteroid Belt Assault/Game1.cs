@@ -23,6 +23,8 @@ namespace Asteroid_Belt_Assault
         GameStates gameState = GameStates.TitleScreen;
         Texture2D titleScreen;
         Texture2D spriteSheet;
+        Texture2D Boss;
+        Texture2D spaceships;
 
         StarField starField;
         AsteroidManager asteroidManager;
@@ -75,6 +77,8 @@ namespace Asteroid_Belt_Assault
 
             titleScreen = Content.Load<Texture2D>(@"Textures\TitleScreen");
             spriteSheet = Content.Load<Texture2D>(@"Textures\spriteSheet");
+            Boss = Content.Load<Texture2D>(@"Textures\Boss");
+            spaceships = Content.Load<Texture2D>(@"Textures\spaceships");
 
             starField = new StarField(
                 this.Window.ClientBounds.Width,

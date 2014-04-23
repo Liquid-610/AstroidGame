@@ -13,7 +13,7 @@ namespace Asteroid_Belt_Assault
         public Vector2 gunOffset = new Vector2(25, 25);
         private Queue<Vector2> waypoints = new Queue<Vector2>();
         private Vector2 currentWaypoint = Vector2.Zero;
-        private float speed = 180f;
+        private float speed = 90f;
         public bool Destroyed = false;
         private int enemyRadius = 20;
         private Vector2 previousLocation = Vector2.Zero;
