@@ -13,9 +13,9 @@ namespace Asteroid_Belt_Assault
         public Vector2 gunOffset = new Vector2(25, 25);
         private Queue<Vector2> waypoints = new Queue<Vector2>();
         private Vector2 currentWaypoint = Vector2.Zero;
-        private float speed = 120f;
+        private float speed = 180f;
         public bool Destroyed = false;
-        private int enemyRadius = 15;
+        private int enemyRadius = 20;
         private Vector2 previousLocation = Vector2.Zero;
 
         public Enemy(
@@ -91,7 +91,7 @@ namespace Asteroid_Belt_Assault
                 {
                     heading.Normalize();
                 }
-                heading *= speed;
+                heading *= (2 + speed);
                 EnemySprite.Velocity = heading;
                 previousLocation = EnemySprite.Location;
                 EnemySprite.Update(gameTime);

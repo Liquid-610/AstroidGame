@@ -43,7 +43,7 @@ namespace Asteroid_Belt_Assault
                         playerManager.PlayerScore += enemyPointValue;
                         explosionManager.AddExplosion(
                             enemy.EnemySprite.Center,
-                            enemy.EnemySprite.Velocity / 10);
+                            enemy.EnemySprite.Velocity / 15);
                     }
 
                 }
@@ -56,19 +56,19 @@ namespace Asteroid_Belt_Assault
             {
                 foreach (Sprite asteroid in asteroidManager.Asteroids)
                 {
+                   
                     if (shot.IsCircleColliding(
                         asteroid.Center,
                         asteroid.CollisionRadius))
                     {
                         shot.Location = offScreen;
-                        asteroid.Velocity += shotToAsteroidImpact;
-
-
-                        playerManager.Destroyed = true;
+         
 
                         explosionManager.AddExplosion(
-                       playerManager.playerSprite.Center,
-                       Vector2.Zero);
+                       asteroid.Center,
+                       asteroid.Velocity / 10);
+                        asteroid.Location = offScreen;
+                       
                     }
                 }
             }
@@ -113,6 +113,28 @@ namespace Asteroid_Belt_Assault
             }
         }
 
+        private void checkEnemyToAsteroidCollisions()
+        {
+            foreach (Enemy enemy in enemyManager.Enemies)
+            {
+                foreach (Sprite asteroid in asteroidManager.Asteroids)
+                {
+                    if (enemy.EnemySprite.IsCircleColliding(
+                        asteroid.Center,
+                        asteroid.CollisionRadius))
+                    {
+                        enemy.EnemySprite.Location = offScreen;
+
+
+                        explosionManager.AddExplosion(
+                       asteroid.Center,
+                       asteroid.Velocity / 10);
+                        asteroid.Location = offScreen;
+                    }
+                }
+            }
+        }
+
         private void checkAsteroidToPlayerCollisions()
         {
             foreach (Sprite asteroid in asteroidManager.Asteroids)
@@ -139,6 +161,7 @@ namespace Asteroid_Belt_Assault
         {
             checkShotToEnemyCollisions();
             checkShotToAsteroidCollisions();
+            checkEnemyToAsteroidCollisions();
             if (!playerManager.Destroyed)
             {
                 checkShotToPlayerCollisions();
