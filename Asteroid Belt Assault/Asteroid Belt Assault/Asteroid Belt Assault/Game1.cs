@@ -25,6 +25,8 @@ namespace Asteroid_Belt_Assault
         Texture2D spriteSheet;
         Texture2D Boss;
         Texture2D spaceships;
+        Texture2D newenemies;
+        Texture2D newplayer;
 
         StarField starField;
         AsteroidManager asteroidManager;
@@ -79,6 +81,9 @@ namespace Asteroid_Belt_Assault
             spriteSheet = Content.Load<Texture2D>(@"Textures\spriteSheet");
             Boss = Content.Load<Texture2D>(@"Textures\Boss");
             spaceships = Content.Load<Texture2D>(@"Textures\spaceships");
+            newplayer = Content.Load<Texture2D>(@"Textures\newplayer");
+            newenemies = Content.Load<Texture2D>(@"Textures\newenemies");
+
 
             starField = new StarField(
                 this.Window.ClientBounds.Width,
@@ -301,11 +306,11 @@ namespace Asteroid_Belt_Assault
                 }
             }
 
-            if (playerManager.PlayerScore.ToString() == "1500")
+            if (playerManager.PlayerScore.ToString() == "300")
             {
-                spriteBatch.Draw(Boss,
-                    new Rectangle(32, 35,192 ,
-                        192),
+                spriteBatch.Draw(newenemies,
+                    new Rectangle(1, 6,91 ,
+                        91),
                         Color.White);
             }
 
