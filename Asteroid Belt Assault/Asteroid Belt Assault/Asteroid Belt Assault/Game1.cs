@@ -36,7 +36,7 @@ namespace Asteroid_Belt_Assault
 
         SpriteFont pericles14;
 
-        private float playerDeathDelayTime = 10f;
+        private float playerDeathDelayTime = 6f;
         private float playerDeathTimer = 0f;
         private float titleScreenTimer = 0f;
         private float titleScreenDelayTime = 1f;
@@ -282,6 +282,7 @@ namespace Asteroid_Belt_Assault
                 playerManager.Draw(spriteBatch);
                 enemyManager.Draw(spriteBatch);
                 explosionManager.Draw(spriteBatch);
+               
 
                 spriteBatch.DrawString(
                     pericles14,
@@ -298,6 +299,11 @@ namespace Asteroid_Belt_Assault
                         livesLocation,
                         Color.White);
                 }
+            }
+
+            if (playerManager.PlayerScore.ToString() == "1500")
+            {
+ 
             }
 
             if ((gameState == GameStates.GameOver))

@@ -75,14 +75,14 @@
     <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.XImporter, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Textures\imgres.jpg">
+    <Compile Include="Textures\spaceships.jpg">
       <Name>spaceships</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Textures\images.jpg">
+    <Compile Include="Textures\Boss.jpg">
       <Name>Boss</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
