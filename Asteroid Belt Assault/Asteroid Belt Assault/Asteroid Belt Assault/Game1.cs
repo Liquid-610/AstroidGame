@@ -306,12 +306,12 @@ namespace Asteroid_Belt_Assault
                 }
             }
 
-            if (playerManager.PlayerScore.ToString() == "300")
+            if (playerManager.PlayerScore == 300)
             {
                 spriteBatch.Draw(newenemies,
-                    new Rectangle(1, 6,91 ,
-                        91),
-                        Color.White);
+                    new Rectangle(43, 100,259,
+                        194),
+                        Color.Red);
             }
 
             if ((gameState == GameStates.GameOver))
