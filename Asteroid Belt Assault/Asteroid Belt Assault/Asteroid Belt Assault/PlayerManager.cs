@@ -90,17 +90,33 @@ namespace Asteroid_Belt_Assault
             if (keyState.IsKeyDown(Keys.Left))
             {
                 playerSprite.Velocity += new Vector2(-1, 0);
+                //playerSprite.Rotation -= 0.04f;
             }
 
             if (keyState.IsKeyDown(Keys.Right))
             {
                 playerSprite.Velocity += new Vector2(1, 0);
+               // playerSprite.Rotation += 0.04f;
             }
 
             if (keyState.IsKeyDown(Keys.Space))
             {
                 FireShot();
             }
+
+            if (keyState.IsKeyDown(Keys.Right) && keyState.IsKeyDown(Keys.Up))
+            {
+
+                playerSprite.Rotation += 0.02f;
+            }
+
+            if (keyState.IsKeyDown(Keys.Left) && keyState.IsKeyDown(Keys.Up))
+            {
+
+                playerSprite.Rotation -= 0.02f;
+            }
+
+
         }
 
         private void HandleGamepadInput(GamePadState gamePadState)
@@ -158,6 +174,13 @@ namespace Asteroid_Belt_Assault
                 playerSprite.Update(gameTime);
                 imposeMovementLimits();
             }
+
+            if (PlayerScore == 200)
+            {
+                playerSpeed = playerSpeed * 2;
+ 
+            }
+
         }
 
         public void Draw(SpriteBatch spriteBatch)
