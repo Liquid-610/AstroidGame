@@ -107,13 +107,13 @@ namespace Asteroid_Belt_Assault
             if (keyState.IsKeyDown(Keys.Right) && keyState.IsKeyDown(Keys.Up))
             {
 
-                playerSprite.Rotation += 0.02f;
+                playerSprite.Rotation += 0.04f;
             }
 
             if (keyState.IsKeyDown(Keys.Left) && keyState.IsKeyDown(Keys.Up))
             {
 
-                playerSprite.Rotation -= 0.02f;
+                playerSprite.Rotation -= 0.04f;
             }
 
 
@@ -177,7 +177,7 @@ namespace Asteroid_Belt_Assault
 
             if (PlayerScore == 200)
             {
-                playerSpeed = playerSpeed * 2;
+                playerSprite.Velocity *= (playerSpeed * 300);
  
             }
 
