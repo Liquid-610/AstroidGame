@@ -23,7 +23,7 @@ namespace Asteroid_Belt_Assault
         GameStates gameState = GameStates.TitleScreen;
         Texture2D titleScreen;
         Texture2D spriteSheet;
-        Texture2D Boss;
+        Texture2D newPlayer;
        // Texture2D spaceships;
         Texture2D newenemies;
         Texture2D newplayer;
@@ -79,7 +79,7 @@ namespace Asteroid_Belt_Assault
 
             titleScreen = Content.Load<Texture2D>(@"Textures\TitleScreen");
             spriteSheet = Content.Load<Texture2D>(@"Textures\spriteSheet");
-            Boss = Content.Load<Texture2D>(@"Textures\Boss");
+            newPlayer = Content.Load<Texture2D>(@"Textures\newPlayer");
             //spaceships = Content.Load<Texture2D>(@"Textures\spaceships");
             newplayer = Content.Load<Texture2D>(@"Textures\newplayer");
             newenemies = Content.Load<Texture2D>(@"Textures\newenemies");
@@ -102,8 +102,8 @@ namespace Asteroid_Belt_Assault
                 this.Window.ClientBounds.Height);
 
             playerManager = new PlayerManager(
-                spriteSheet,    
-                new Rectangle(0, 150, 50, 50),    
+                newplayer,    
+                new Rectangle(1, 48, 49, 48),    
                 3,
                 new Rectangle(
                     0,
@@ -153,7 +153,7 @@ namespace Asteroid_Belt_Assault
 
         private void resetGame()
         {
-            playerManager.playerSprite.Location = playerStartLocation;
+            playerManager.newPlayer.Location = playerStartLocation;
             foreach (Sprite asteroid in asteroidManager.Asteroids)
             {
                 asteroid.Location = new Vector2(-500, -500);

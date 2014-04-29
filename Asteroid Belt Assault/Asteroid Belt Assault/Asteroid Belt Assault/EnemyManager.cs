@@ -162,7 +162,7 @@ namespace Asteroid_Belt_Assault
                         fireLoc += Enemies[x].gunOffset;
 
                         Vector2 shotDirection =
-                            playerManager.playerSprite.Center -
+                            playerManager.newPlayer.Center -
                             fireLoc;
 
                         shotDirection.Normalize();
