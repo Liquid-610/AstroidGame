@@ -27,6 +27,7 @@ namespace Asteroid_Belt_Assault
        // Texture2D spaceships;
         Texture2D newenemies;
         Texture2D newplayer;
+        Texture2D newBackground;
 
         StarField starField;
         AsteroidManager asteroidManager;
