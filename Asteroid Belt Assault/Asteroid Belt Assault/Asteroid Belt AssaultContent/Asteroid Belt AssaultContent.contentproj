@@ -89,13 +89,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Textures\newplayer.jpg">
-      <Name>newplayer</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Textures\newenemies.jpg">
       <Name>newenemies</Name>
       <Importer>TextureImporter</Importer>
@@ -105,6 +98,13 @@
   <ItemGroup>
     <Compile Include="Textures\newBackground.png">
       <Name>newBackground</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Textures\newplayer.png">
+      <Name>newplayer</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

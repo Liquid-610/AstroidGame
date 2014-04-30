@@ -27,13 +27,14 @@ namespace Asteroid_Belt_Assault
        // Texture2D spaceships;
         Texture2D newenemies;
         Texture2D newplayer;
-        Texture2D newBackground;
+       // Texture2D newBackground;
 
         StarField starField;
         AsteroidManager asteroidManager;
         PlayerManager playerManager;
         EnemyManager enemyManager;
         ExplosionManager explosionManager;
+       // NewBackGround newBackground;
 
         CollisionManager collisionManager;
 
@@ -84,13 +85,15 @@ namespace Asteroid_Belt_Assault
             //spaceships = Content.Load<Texture2D>(@"Textures\spaceships");
             newplayer = Content.Load<Texture2D>(@"Textures\newplayer");
             newenemies = Content.Load<Texture2D>(@"Textures\newenemies");
+           // // = Content.Load<Texture2D>(@"Textures\newBackground");
+
 
 
             starField = new StarField(
                 this.Window.ClientBounds.Width,
                 this.Window.ClientBounds.Height,
                 200,
-                new Vector2(0, 30f),
+                new Vector2(0, 10000f),
                 spriteSheet,
                 new Rectangle(0, 450, 2, 2));
 
@@ -201,6 +204,8 @@ namespace Asteroid_Belt_Assault
 
                 case GameStates.Playing:
 
+
+                    //newBackground.Update(gameTime);
                     starField.Update(gameTime);
                     asteroidManager.Update(gameTime);
                     playerManager.Update(gameTime);
@@ -283,16 +288,18 @@ namespace Asteroid_Belt_Assault
                 (gameState == GameStates.PlayerDead) ||
                 (gameState == GameStates.GameOver))
             {
+                //newBackground.Draw(spriteBatch);
                 starField.Draw(spriteBatch);
                 asteroidManager.Draw(spriteBatch);
                 playerManager.Draw(spriteBatch);
                 enemyManager.Draw(spriteBatch);
                 explosionManager.Draw(spriteBatch);
+                
                
 
                 spriteBatch.DrawString(
                     pericles14,
-                    "Score: " + playerManager.PlayerScore.ToString(),
+                    "Kill Hits: " + playerManager.PlayerScore.ToString(),
                     scoreLocation,
                     Color.White);
 
@@ -300,7 +307,7 @@ namespace Asteroid_Belt_Assault
                 {
                     spriteBatch.DrawString(
                         pericles14,
-                        "Ships Remaining: " +
+                        "Lives Remaining: " +
                             playerManager.LivesRemaining.ToString(),
                         livesLocation,
                         Color.White);
@@ -319,10 +326,10 @@ namespace Asteroid_Belt_Assault
             {
                 spriteBatch.DrawString(
                     pericles14,
-                    "G A M E  O V E R !",
+                    "G A M E  O V E R  S O L D I E R!",
                     new Vector2(
                         this.Window.ClientBounds.Width / 2 -
-                          pericles14.MeasureString("G A M E  O V E R !").X / 2,
+                          pericles14.MeasureString("G A M E  O V E R  S O L D I E R!").X / 2,
                         50),
                     Color.White);
             }
