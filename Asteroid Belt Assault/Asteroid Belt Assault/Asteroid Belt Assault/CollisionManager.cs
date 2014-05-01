@@ -62,6 +62,8 @@ namespace Asteroid_Belt_Assault
                         asteroid.CollisionRadius))
                     {
                         shot.Location = offScreen;
+
+                        playerManager.PlayerScore += 100;
          
 
                         explosionManager.AddExplosion(

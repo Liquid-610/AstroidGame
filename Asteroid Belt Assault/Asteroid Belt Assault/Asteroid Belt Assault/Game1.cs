@@ -27,14 +27,15 @@ namespace Asteroid_Belt_Assault
        // Texture2D spaceships;
         Texture2D newenemies;
         Texture2D newplayer;
-       // Texture2D newBackground;
+       Texture2D newBackground;
+       Texture2D newshots;
 
         StarField starField;
         AsteroidManager asteroidManager;
         PlayerManager playerManager;
         EnemyManager enemyManager;
         ExplosionManager explosionManager;
-       // NewBackGround newBackground;
+        //NewBackGround newBackground;
 
         CollisionManager collisionManager;
 
@@ -76,6 +77,10 @@ namespace Asteroid_Belt_Assault
         /// </summary>
         protected override void LoadContent()
         {
+
+            Song song = Content.Load<Song>("In Fast Motion");  // Put the name of your song in instead of "song_title"
+            MediaPlayer.Play(song);
+
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
@@ -85,7 +90,8 @@ namespace Asteroid_Belt_Assault
             //spaceships = Content.Load<Texture2D>(@"Textures\spaceships");
             newplayer = Content.Load<Texture2D>(@"Textures\newplayer");
             newenemies = Content.Load<Texture2D>(@"Textures\newenemies");
-           // // = Content.Load<Texture2D>(@"Textures\newBackground");
+           newBackground = Content.Load<Texture2D>(@"Textures\newbackground");
+           newshots = Content.Load<Texture2D>(@"Textures\newshots");
 
 
 
@@ -93,7 +99,7 @@ namespace Asteroid_Belt_Assault
                 this.Window.ClientBounds.Width,
                 this.Window.ClientBounds.Height,
                 200,
-                new Vector2(0, 10000f),
+                new Vector2(0, 400f),
                 spriteSheet,
                 new Rectangle(0, 450, 2, 2));
 
@@ -107,8 +113,8 @@ namespace Asteroid_Belt_Assault
 
             playerManager = new PlayerManager(
                 newplayer,    
-                new Rectangle(1, 48, 49, 48),    
-                3,
+                new Rectangle(0, 0, 50, 48),    
+                0,
                 new Rectangle(
                     0,
                     0,
@@ -205,7 +211,7 @@ namespace Asteroid_Belt_Assault
                 case GameStates.Playing:
 
 
-                    //newBackground.Update(gameTime);
+                   // newBackground.Update(gameTime);
                     starField.Update(gameTime);
                     asteroidManager.Update(gameTime);
                     playerManager.Update(gameTime);
@@ -234,6 +240,8 @@ namespace Asteroid_Belt_Assault
                     playerDeathTimer +=
                         (float)gameTime.ElapsedGameTime.TotalSeconds;
 
+
+                   // newBackground.Update(gameTime);
                     starField.Update(gameTime);
                     asteroidManager.Update(gameTime);
                     enemyManager.Update(gameTime);

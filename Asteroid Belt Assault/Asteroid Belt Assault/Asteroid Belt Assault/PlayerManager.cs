@@ -20,7 +20,7 @@ namespace Asteroid_Belt_Assault
 
         private Vector2 gunOffset = new Vector2(25, 10);
         private float shotTimer = 0.0f;
-        private float minShotTimer = 0.2f;
+        private float minShotTimer = 0.8f;
         private int playerRadius = 15;
         public ShotManager PlayerShotManager;
 
@@ -68,7 +68,7 @@ namespace Asteroid_Belt_Assault
             if (shotTimer >= minShotTimer)
             {
                 PlayerShotManager.FireShot(
-                    newPlayer.Location + gunOffset,
+                    newPlayer.Center,
                     new Vector2(0, -1),
                     true);
                 shotTimer = 0.0f;

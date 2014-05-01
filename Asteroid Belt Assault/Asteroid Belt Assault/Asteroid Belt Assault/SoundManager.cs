@@ -25,7 +25,7 @@ namespace Asteroid_Belt_Assault
         {
             try
             {
-                playerShot = content.Load<SoundEffect>(@"Sounds\Shot1");
+                playerShot = content.Load<SoundEffect>(@"Sounds\gunshot");
                 enemyShot = content.Load<SoundEffect>(@"Sounds\Shot2");
 
                 for (int x = 1; x <= explosionCount; x++)
