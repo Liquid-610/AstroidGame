@@ -28,6 +28,8 @@ namespace Asteroid_Belt_Assault
         Texture2D newenemies;
         Texture2D newplayer;
        Texture2D newBackground;
+       Texture2D BackGround2;
+       Texture2D BackGround3;
        Texture2D newshots;
 
         StarField starField;
@@ -91,7 +93,14 @@ namespace Asteroid_Belt_Assault
             newplayer = Content.Load<Texture2D>(@"Textures\newplayer");
             newenemies = Content.Load<Texture2D>(@"Textures\newenemies");
            newBackground = Content.Load<Texture2D>(@"Textures\newbackground");
+           BackGround2 = Content.Load<Texture2D>(@"Textures/BackGround2");
+           BackGround3 = Content.Load<Texture2D>(@"Textures/BackGround2");
            newshots = Content.Load<Texture2D>(@"Textures\newshots");
+
+
+
+           //Make sure the mouse cursor is visible!
+           IsMouseVisible = true;
 
 
 
@@ -296,7 +305,17 @@ namespace Asteroid_Belt_Assault
                 (gameState == GameStates.PlayerDead) ||
                 (gameState == GameStates.GameOver))
             {
-                //newBackground.Draw(spriteBatch);
+
+               // spriteBatch.Draw(BackGround2, Vector2.Zero, Color.White);
+                if (playerManager.PlayerScore >1000 && playerManager.PlayerScore < 2000)
+                {
+                    spriteBatch.Draw(BackGround2, Vector2.Zero, Color.White);
+                }
+                if (playerManager.PlayerScore > 2000 && playerManager.PlayerScore < 5000)
+                {
+                    spriteBatch.Draw(newBackground, Vector2.Zero, Color.White);
+                }
+                spriteBatch.Draw(newBackground, Vector2.Zero, Color.White);
                 starField.Draw(spriteBatch);
                 asteroidManager.Draw(spriteBatch);
                 playerManager.Draw(spriteBatch);
