@@ -69,7 +69,7 @@ namespace Asteroid_Belt_Assault
             {
                 PlayerShotManager.FireShot(
                     newPlayer.Center,
-                    new Vector2(0, -1),
+                    new Vector2(0, 0),
                     true);
                 shotTimer = 0.0f;
             }
