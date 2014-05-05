@@ -19,9 +19,9 @@ namespace Asteroid_Belt_Assault
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        enum GameStates { TitleScreen, Playing, PlayerDead, GameOver };
-        GameStates gameState = GameStates.TitleScreen;
-        Texture2D titleScreen;
+        enum GameStates { TitleScreen1, Playing, PlayerDead, GameOver };
+        GameStates gameState = GameStates.TitleScreen1;
+        Texture2D TitleScreen1;
         Texture2D spriteSheet;
         Texture2D newPlayer;
        // Texture2D spaceships;
@@ -45,8 +45,8 @@ namespace Asteroid_Belt_Assault
 
         private float playerDeathDelayTime = 6f;
         private float playerDeathTimer = 0f;
-        private float titleScreenTimer = 0f;
-        private float titleScreenDelayTime = 1f;
+        private float TitleScreen1Timer = 0f;
+        private float TitleScreen1DelayTime = 1f;
 
         private int playerStartingLives = 3;
         private Vector2 playerStartLocation = new Vector2(390, 550);
@@ -86,7 +86,7 @@ namespace Asteroid_Belt_Assault
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            titleScreen = Content.Load<Texture2D>(@"Textures\TitleScreen");
+            TitleScreen1 = Content.Load<Texture2D>(@"Textures\TitleScreen1");
             spriteSheet = Content.Load<Texture2D>(@"Textures\spriteSheet");
             newPlayer = Content.Load<Texture2D>(@"Textures\newPlayer");
             //spaceships = Content.Load<Texture2D>(@"Textures\spaceships");
@@ -199,11 +199,11 @@ namespace Asteroid_Belt_Assault
 
             switch (gameState)
             {
-                case GameStates.TitleScreen:
-                    titleScreenTimer +=
+                case GameStates.TitleScreen1:
+                    TitleScreen1Timer +=
                         (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-                    if (titleScreenTimer >= titleScreenDelayTime)
+                    if (TitleScreen1Timer >= TitleScreen1DelayTime)
                     {
                         if ((Keyboard.GetState().IsKeyDown(Keys.Space)) ||
                             (GamePad.GetState(PlayerIndex.One).Buttons.A ==
@@ -274,7 +274,7 @@ namespace Asteroid_Belt_Assault
                     explosionManager.Update(gameTime);
                     if (playerDeathTimer >= playerDeathDelayTime)
                     {
-                        gameState = GameStates.TitleScreen;
+                        gameState = GameStates.TitleScreen1;
                     }
                     break;
 
@@ -293,9 +293,9 @@ namespace Asteroid_Belt_Assault
 
             spriteBatch.Begin();
 
-            if (gameState == GameStates.TitleScreen)
+            if (gameState == GameStates.TitleScreen1)
             {
-                spriteBatch.Draw(titleScreen,
+                spriteBatch.Draw(TitleScreen1,
                     new Rectangle(0, 0, this.Window.ClientBounds.Width,
                         this.Window.ClientBounds.Height),
                         Color.White);

@@ -24,6 +24,8 @@ namespace Asteroid_Belt_Assault
         private int playerRadius = 15;
         public ShotManager PlayerShotManager;
 
+        public Vector2 direction = new Vector2(0, -1);
+
         public PlayerManager(
             Texture2D texture,  
             Rectangle initialFrame,
@@ -69,8 +71,8 @@ namespace Asteroid_Belt_Assault
             {
                 PlayerShotManager.FireShot(
                     newPlayer.Center,
-                    new Vector2(0, 0),
-                    true);
+                   direction,
+                   true);
                 shotTimer = 0.0f;
             }
         }
