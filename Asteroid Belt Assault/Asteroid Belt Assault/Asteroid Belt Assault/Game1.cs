@@ -83,6 +83,9 @@ namespace Asteroid_Belt_Assault
             Song song = Content.Load<Song>("In Fast Motion");  // Put the name of your song in instead of "song_title"
             MediaPlayer.Play(song);
 
+            
+           
+
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
