@@ -19,7 +19,12 @@ namespace Asteroid_Belt_Assault
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        enum GameStates { TitleScreen1, Playing, PlayerDead, GameOver };
+        enum GameStates { MainMenu, Options,TitleScreen1, Playing, PlayerDead, GameOver };
+        GameStates CurrentGameState = GameStates.MainMenu;
+        int screenWidth = 800, screenHeight = 600;
+
+        cButton btnPlay;
+
         GameStates gameState = GameStates.TitleScreen1;
         Texture2D TitleScreen1;
         Texture2D spriteSheet;
@@ -83,6 +88,23 @@ namespace Asteroid_Belt_Assault
             Song song = Content.Load<Song>("In Fast Motion");  // Put the name of your song in instead of "song_title"
             MediaPlayer.Play(song);
 
+            //Screen Stuff
+            graphics.PreferredBackBufferWidth = screenWidth;
+            graphics.PreferredBackBufferHeight = screenHeight;
+            //graphics.IsFullScreen = true;
+            graphics.ApplyChanges();
+
+            //Make sure the mouse cursor is visible!
+           IsMouseVisible = true;
+
+            btnPlay = new cButton(Content.Load<Texture2D>("Button"), graphics.GraphicsDevice);
+            btnPlay.setPosition(new Vector2(350, 300));
+
+
+
+
+
+
             
            
 
@@ -102,8 +124,7 @@ namespace Asteroid_Belt_Assault
 
 
 
-           //Make sure the mouse cursor is visible!
-           IsMouseVisible = true;
+           
 
 
 
@@ -200,6 +221,16 @@ namespace Asteroid_Belt_Assault
 
             // TODO: Add your update logic here
 
+            MouseState mouse = Mouse.GetState();
+
+            switch (CurrentGameState)
+            {
+                case GameStates.MainMenu:
+                    if (btnPlay.isClicked == true) CurrentGameState = GameStates.Playing;
+                    btnPlay.Update(mouse);
+                    break;
+            }
+
             switch (gameState)
             {
                 case GameStates.TitleScreen1:
@@ -295,6 +326,14 @@ namespace Asteroid_Belt_Assault
             GraphicsDevice.Clear(Color.Black);
 
             spriteBatch.Begin();
+
+            switch (CurrentGameState)
+            {
+                case GameStates.MainMenu:
+                    spriteBatch.Draw(Content.Load<Texture2D>("TitleScreen1"), new Rectangle(0, 0, screenWidth, screenHeight), Color.White);
+                    btnPlay.Draw(spriteBatch);
+                    break;
+            }
 
             if (gameState == GameStates.TitleScreen1)
             {
